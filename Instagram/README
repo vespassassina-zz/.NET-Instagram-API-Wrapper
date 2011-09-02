@@ -1,0 +1,4 @@
+This is an Instagram API wrapper implemented in C#. This component is the actual wrapper implementation.
+To use it you need to create a developer account on http://instagram.com and configure the api wrapper with the needed information.
+
+You can implement the ICache interface and pass your cache repository object to the wrapper to improve performances.

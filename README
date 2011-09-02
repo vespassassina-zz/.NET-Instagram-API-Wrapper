@@ -1,0 +1,33 @@
+This is a custom C# implementation of Instagram APIs. 
+
+Has been built with Visual Studio 2010, and .NET 4.0.
+It is compatible with .NET 2.0 (just rebuild changing version).
+
+This implementation is based on a base class that handles the basic behaviours 
+and can be coupled with a caching mechanism to improve the app efficiency.
+
+Instructions
+
+1 add the 2 projects to your solution
+2 reference Instagram Api from your main project
+3 download and reference JSON.net (needed by api base class) http://json.codeplex.com/
+4 signup with instagram and create an application http://instagram.com/developer
+5 create an API instance
+6 create a configuration object and fill all the needed data (app id, secret...)
+7 optionally implement the ICache interface (a simple wrapper for asp.net cache would go)
+8 use the api
+
+
+Example
+
+    Instagram.api.Configuration config = new Instagram.api.Configuration(
+        authurl,		//url of the authorization request endpoint
+        clientid,		//client id, as created by IG for your app
+        clientsecret,		//client secret, as created by IG for your app
+        callbackurl,		//url of the page, in your app, where the user is redirected after logon
+        tokenurl,		//url of the token request page
+        instagramapibase,	//base url of the instagram api http://instagram.com/api/v1/
+        webproxy		//string representing a web proxy: 127.0.0.1:8080
+    );
+
+    InstagramApiWrapper _api = InstagramApiWrapper.GetInstance(config, cacheManager);
