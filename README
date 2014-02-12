@@ -1,4 +1,4 @@
-This is a custom C# implementation of Instagram APIs. 
+*This is a custom C# implementation of Instagram APIs. *
 
 Has been built with Visual Studio 2010, and .NET 4.0.
 It is compatible with .NET 2.0 (just rebuild changing version).
@@ -6,7 +6,7 @@ It is compatible with .NET 2.0 (just rebuild changing version).
 This implementation is based on a base class that handles the basic behaviours 
 and can be coupled with a caching mechanism to improve the app efficiency.
 
-Instructions
+*Instructions*
 
 1 add the 2 projects to your solution
 2 reference Instagram Api from your main project
@@ -31,3 +31,16 @@ Example
     );
 
     InstagramApiWrapper _api = InstagramApiWrapper.GetInstance(config, cacheManager);
+    
+    
+    
+*Authentication Note:*
+Instagram uses a OAuth 2 authentication scheme (like twitter, facebook and others), this means that you have to:
+
+1- create an instagram application on instagram website and add the app token to your webapp
+2- add your website callback address, the address that their website will send the user after authentication (this means that it should be accessible by internet users)
+3- on authentication request, on your site, you have to send your user to IG authentication page 
+4- the user will come back to your site, from IG site, with an authentication token
+5- use this token to do stuff.
+
+read this paper to get more info: http://instagram.com/developer/authentication/
